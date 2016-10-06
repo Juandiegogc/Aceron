@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es" ng-app="aceron">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ACERÓN </title>
+  <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/app.foundation.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-controller="HomeViewController">
+
+  <header>
+    <div class="top-bar">
+      <div id="responsive-menu">
+        <div class="top-bar-title">
+          <a id="logo-container" href="#/" class="brand-logo">
+            <img class="img-logo" src="img/logo.png" title="logo" alt="logo"  width="4%" style="display:inline"> <strong>{{appTittle}}</strong>
+          </a> 
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <br>
+    <div class="container-fluid containerView" ng-view></div> 
+    <br>
+  </main>
+
+  <footer>
+    <div class="top-bar">
+      <div id="responsive-menu">
+        <div class="top-bar-center">
+          <p><a id="logo-container" href="#/" class="brand-logo">
+            <img class="img-logo" src="img/logo.png" title="logo" alt="logo"  width="2%" style="display:inline"> <strong>  A C E R Ó N  </strong>
+          </a></p> 
+          <span class="footerList"> Juan Diego Co. © Todos los Derechos Reservados</i></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-2.2.2.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/what-input.js"></script>
+  <script src="js/foundation.js"></script>
+  <script src="js/app.foundation.js"></script>
+
+</body>
+</html>

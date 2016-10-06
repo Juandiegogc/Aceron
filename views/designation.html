@@ -1,0 +1,75 @@
+ <section ng-controller="DesignationViewController">
+
+  <div class="row column text-center">
+    <a href="#/perfiles/IPE" id="button-types" class="button large">Catálogo de perfiles</a>
+    <a href="#/calculo" id="button-calculate" class="button large hollow btn-white">Haz tus propios cálculos</a>    
+  </div>
+
+  <div class="row column center">
+    <div class="large-12 medium-12 small-12 columns">
+      <div class="callout primary text-center small">
+        <div ng-repeat="item in items | filter: {Designation: Designation}:true" class="name beams">
+          <div class="row">
+            <div class="medium-4 columns">
+
+             <div>
+              <h4 class="tittle-designation">{{item.Designation}}</h4>
+            </div>
+
+            <div>
+              <img class="img-beam-designation" ng-src="img/sections/{{item.Type}}.png" alt="{{item.image}}" width="90%">
+            </div>
+
+            <div>
+              <p style="margin-left: 45px"><strong>   G: </strong>{{item.G}} <span p class="unit">kg/mm</span> (Peso de la sección)</p>
+            </div>
+
+          </div>
+
+          <div class="medium-4 columns">
+            <h4 style="text-decoration: underline;margin-top: 30px">Datos Geométricos:</h4>
+            <p><strong>h: </strong>{{item.h}} <span p class="unit">mm</span></p>
+            <p><strong>b: </strong>{{item.b}} <span p class="unit">mm</span></p>
+            <p><strong>t<sub>w</sub>: </strong>{{item.tw}} <span p class="unit">mm</span></p>
+            <p><strong>t<sub>f</sub>: </strong>{{item.tf}} <span p class="unit">mm</span></p>
+            <p><strong>r: </strong>{{item.r}} <span p class="unit">mm</span></p>
+            <p><strong>A: </strong>{{item.A}} <span p class="unit"> x10<sup>2 </sup>mm<sup>2</sup></span></p>
+            <p><strong>h<sub>i</sub>: </strong>{{item.hi}} <span p class="unit">mm</span></p>
+            <p><strong>d: </strong>{{item.d}} <span p class="unit">mm</span></p>
+            <p><strong>Ø: </strong>{{item.Diameter}} <span p class="unit"> </span></p>
+            <p><strong>P<sub>min</sub>: </strong>{{item.Pmin}} <span p class="unit">mm</span></p>
+            <p><strong>P<sub>max</sub>: </strong>{{item.Pmax}} <span p class="unit">mm</span></p>
+            <p><strong>A<sub>L</sub>: </strong>{{item.AL}} <span p class="unit">m<sup>2</sup>/m</span></p>
+            <p><strong>A<sub>G</sub>: </strong>{{item.AG}} <span p class="unit">m<sup>2</sup>/t</span></p>
+          </div>
+
+          <div class="medium-4 columns end">
+            <h4 style="text-decoration: underline;margin-top: 30px">Datos de cálculo:</h4>
+            <p><strong>I<sub>y</sub>: </strong>{{item.Iy}} <span p class="unit"> x10<sup>4 </sup>mm<sup>4</sup></span></p>
+            <p><strong>W<sub>el.y</sub>: </strong>{{item.Wel_y}} <span p class="unit"> x10<sup>3 </sup>mm<sup>3</sup></span></p>
+            <p><strong>W<sub>pl.y</sub>: </strong>{{item.Wpl_y}} <span p class="unit"> x10<sup>3 </sup>mm<sup>3</sup></span></p>
+            <p><strong>i<sub>y</sub>: </strong>{{item.iy_}} <span p class="unit">x10 mm</span></p>
+            <p><strong>A<sub>vz</sub>: </strong>{{item.Avz}} <span p class="unit"> x10<sup>2 </sup>mm<sup>2</sup></span></p>
+            <p><strong>I<sub>z</sub>: </strong>{{item.Iz}} <span p class="unit"> x10<sup>4</sup>mm<sup>4</sup></span></p>
+            <p><strong>W<sub>el.z</sub>: </strong>{{item.Wel_z}} <span p class="unit"> x10<sup>3 </sup>mm<sup>3</sup></span></p>
+            <p><strong>W<sub>pl.z</sub>: </strong>{{item.Wpl_z}} <span p class="unit"> x10<sup>3 </sup>mm<sup>3</sup></span></p>
+            <p><strong>i<sub>z</sub>: </strong>{{item.iz_}} <span p class="unit">x10 mm</span></p>
+            <p><strong>S<sub>s</sub>: </strong>{{item.Ss}} <span p class="unit">mm</span></p>
+            <p><strong>I<sub>t</sub>: </strong>{{item.It}} <span p class="unit"> x10<sup>4 </sup>mm<sup>4</sup></span></p>
+            <p><strong>I<sub>w</sub>: </strong>{{item.Iw}} <span p class="unit"> x10<sup>9 </sup>mm<sup>6</sup></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div class="row column text-center">
+  <div ng-repeat="item in items | filter: {Designation: Designation}:true" class="name beams">
+    <a href="#/perfiles/{{item.Type}}" class="button large">Volver a atrás</a>
+  </div>
+</div>
+
+</section>
+

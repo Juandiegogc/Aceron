@@ -1,0 +1,76 @@
+ <section ng-controller="CalculateViewController">
+
+  <div class="row column text-center">
+    <a href="#/perfiles/IPE" id="button-types" class="button large">Catálogo de perfiles</a>
+    <a href="#/calculo" id="button-calculate" class="button large hollow btn-white">Haz tus propios cálculos</a>    
+  </div>
+
+  <div class="chosen-beam">
+    <div class="row">
+      <div class="large-12 medium-12 small-12 columns">
+        <div class="callout secondary small">
+          <h5>Introduce los datos de tus vigas para encontrar el perfil metálico correspondiente:</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <form>
+      <div class="large-4 medium-4 small-4 columns">
+        <div class="callout small">
+
+          <h5 class="text-center"><strong>VIGAS DE ACERO</strong></h5>
+
+          <label>Carga (kN/m) </label>
+          <input id="Qbeam" type="text" placeholder="Ej: 8.50 kN"/>
+
+          <label>Luz (m)</label>
+          <input id="Lbeam" type="text" placeholder="Ej: 4.00 m"/>
+
+          <label>Selecciona el perfil de acero</label>
+          <select name="type">
+            <option value="IPE" id="typeIPE"><label for="typeIPE">IPE</option>
+            <option value="IPN" id="typeIPN"><label for="typeIPN">IPN</option>
+            <option value="HE" id="typeHE"><label for="typeHE">HE</option>
+            <option value="HL" id="typeHL"><label for="typeHL">HL</option>
+            <option value="HD" id="typeHD"><label for="typeHD">HD</option>
+            <option value="HP" id="typeHP"><label for="typeHP">HP</option>
+            <option value="UPE" id="typeUPE"><label for="typeUPE">UPE</option>
+            <option value="UPN" id="typeUPN"><label for="typeUPN">UPN</option>
+          </select>
+          <br>
+
+        </div>
+
+        <div class="row column text-center">
+         <br> 
+         <a id="btn-calculateBeam" ng-click="calculateBeam()" class="button large success">¡Calcula!</a>
+         <br> 
+         <br>
+         <a id="btn-deleteBeam" ng-click="DeleteBeamResult()" class="button default alert">Borra resultados</a> 
+       </div>
+
+     </div>
+   </form>
+
+   <div class="large-1 medium-1 small-1 columns">
+    <p></p>
+  </div>
+
+  <div class="row column center">
+    <div class="large-5 medium-5 small-5 columns">
+      <div id='beamResult'>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br> 
+<br> 
+<br> 
+<br> 
+
+<div class="row column text-center">
+  <a href="#" class="button large">Volver a atrás</a></div>
+</section>

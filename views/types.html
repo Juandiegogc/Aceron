@@ -1,0 +1,171 @@
+ <section ng-controller="TypesViewController">
+
+  <div class="row column text-center">
+    <a href="#/perfiles/IPE" id="button-types" class="button large">Catálogo de perfiles</a>
+    <a href="#/calculo" id="button-calculate" class="button large hollow btn-white">Haz tus propios cálculos</a>    
+  </div>
+
+  <form class="chosen-beam">
+    <div class="row">
+      <div class="large-12 medium-12 small-12 columns">
+        <div class="callout secondary small">
+          <h5>Elige el perfil de acero:</h5>
+          <a href="#/perfiles/IPE" id="button-beams" class="button tiny">IPE</a>
+          <a href="#/perfiles/IPN"  id="button-beams" class="button tiny">IPN</a>
+          <a href="#/perfiles/HE"  id="button-beams" class="button tiny">HE</a>
+          <a href="#/perfiles/HL"  id="button-beams" class="button tiny">HL</a>
+          <a href="#/perfiles/HD"  id="button-beams" class="button tiny">HD</a>
+          <a href="#/perfiles/HP"  id="button-beams" class="button tiny">HP</a>
+          <a href="#/perfiles/UPE"  id="button-beams" class="button tiny">UPE</a>
+          <a href="#/perfiles/UPN"  id="button-beams" class="button tiny">UPN</a>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="large-12 medium-12 small-12 columns">
+
+      <div class="callout small" id="data-geom">
+       <div class="row">
+         <div ng-repeat="item in items | filter: {Type: Type}:true" ng-show="$first" class="name beams" >
+
+           <div class="large-2 medium-2 small-2 columns">
+            <h4 class="table-tittle">{{item.Type}}</h4>
+          </div>
+
+          <div class="large-4 medium-4 small-4 columns">
+            <img class="img-beam" ng-src="img/sections/{{item.Type}}.png" alt="{{item.image}}" width="90%">
+          </div>
+
+          <div class="large-4 medium-4 small-4 columns">
+            <h3 class="table-data">Datos geométricos</h3>
+          </div>
+
+          <div class="large-2 medium-2 small-2 columns">
+            <a ng-click="gotoElement('data-calculate')" target="_self" id="button-data" class="button small success">Ir a Datos de cálculo</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <table class="hover responsive">
+      <thead>
+        <tr>
+          <th>Denominación</th>
+          <th>G<br><span p class="unit">(kg/mm)</span></th>
+          <th>h<br><span p class="unit">(mm)</span></th>
+          <th>b<br><span p class="unit">(mm)</span></th>
+          <th>t<sub>w</sub><br><span p class="unit">(mm)</span></th>
+          <th>t<sub>f</sub><br><span p class="unit">(mm)</span></th>
+          <th>r<br><span p class="unit">(mm)</span></th>
+          <th>A<span p class="unit"> x10<sup>2</sup><br>(mm<sup>2</sup>)</span></th>
+          <th>h<sub>i</sub><br><span p class="unit">(mm)</span></th>
+          <th>d<br><span p class="unit">(mm)</span></th>
+          <th>Ø<br><span p class="unit"> </span></th>
+          <th>P<sub>min</sub><br><span p class="unit">(mm)</span></th>
+          <th>P<sub>max</sub><br><span p class="unit">(mm)</span></th>
+          <th>A<sub>L</sub><br><span p class="unit">(m<sup>2</sup>/m)</span></th>
+          <th>A<sub>G</sub><br><span p class="unit">(m<sup>2</sup>/t)</span></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr ng-repeat="item in items | filter: {Type: Type}:true" class="table beams">
+          <td><a href="#/perfiles/designacion/{{item.Designation}}"><strong>{{item.Designation}}</strong></a></td>
+          <td title="G" class="masterTooltip">{{item.G}}</td>  
+          <td title="h" class="masterTooltip">{{item.h}}</td>
+          <td title="b" class="masterTooltip">{{item.b}}</td>
+          <td title="tw" class="masterTooltip">{{item.tw}}</td>
+          <td title="tf" class="masterTooltip">{{item.tf}}</td>
+          <td title="r" class="masterTooltip">{{item.r}}</td>
+          <td title="A" class="masterTooltip">{{item.A}}</td>
+          <td title="hi" class="masterTooltip">{{item.hi}}</td>
+          <td title="d" class="masterTooltip">{{item.d}}</td>
+          <td title="Ø" class="masterTooltip">{{item.Diameter}}</td>
+          <td title="Pmin" class="masterTooltip">{{item.Pmin}}</td>
+          <td title="Pmax" class="masterTooltip">{{item.Pmax}}</td>
+          <td title="AL" class="masterTooltip">{{item.AL}}</td>
+          <td title="AG" class="masterTooltip">{{item.AG}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="callout small" id="data-calculate">
+     <div class="row">
+       <div ng-repeat="item in items | filter: {Type: Type}:true" ng-show="$first" class="name beams" >
+
+         <div class="large-2 medium-2 small-2 columns">
+          <h4 class="table-tittle">{{item.Type}}</h4>
+        </div>
+
+        <div class="large-4 medium-4 small-4 columns">
+          <img class="img-beam" ng-src="img/sections/{{item.Type}}.png" alt="{{item.image}}" width="90%">
+        </div>
+
+        <div class="large-4 medium-4 small-4 columns">
+          <h3 class="table-data">Datos de cálculo</h3>
+        </div>
+
+        <div class="large-2 medium-2 small-2 columns">
+          <a ng-click="gotoElement('data-geom')" target="_self" id="button-data" class="button small success">Ir a Datos geométricos</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <table class="hover responsive">
+    <thead>
+      <tr>
+        <th>Denominación</th>
+        <th>G<br><span p class="unit">(kg/mm)</span></th>
+        <th>I<sub>y</sub><span p class="unit"> x10<sup>4</sup><br>(mm<sup>4</sup>)</span></th>
+        <th>W<sub>el.y</sub><span p class="unit"> x10<sup>3</sup><br>(mm<sup>3</sup>)</span></th>
+        <th>W<sub>pl.y</sub><span p class="unit"> x10<sup>3</sup><br>(mm<sup>3</sup>)</span></th>
+        <th>i<sub>y</sub><span p class="unit">x10<br>(mm)</span></th>
+        <th>A<sub>vz</sub><span p class="unit"> x10<sup>2</sup><br>(mm<sup>2</sup>)</span></th>
+        <th>I<sub>z</sub><span p class="unit"> x10<sup>4</sup><br>(mm<sup>4</sup>)</span></th>
+        <th>W<sub>el.z</sub><span p class="unit"> x10<sup>3</sup><br>(mm<sup>3</sup>)</span></th>
+        <th>W<sub>pl.z</sub><span p class="unit"> x10<sup>3</sup><br>(mm<sup>3</sup>)</span></th>
+        <th>i<sub>z</sub><span p class="unit">x10<br>(mm)</span></th>
+        <th>S<sub>s</sub><span p class="unit"><br>(mm)</span></th>
+        <th>I<sub>t</sub><span p class="unit"> x10<sup>4</sup><br>(mm<sup>4</sup>)</span></th>
+        <th>I<sub>w</sub><span p class="unit"> x10<sup>9</sup><br>(mm<sup>6</sup>)</span></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="item in items | filter: {Type: Type}:true" class="table beams">
+        <td><a href="#/perfiles/designacion/{{item.Designation}}"><strong>{{item.Designation}}</strong></a></td>
+        <td title="G" class="masterTooltip">{{item.G}}</td>
+        <td title="Iy" class="masterTooltip">{{item.Iy}}</td>
+        <td title="Wel.y" class="masterTooltip">{{item.Wel_y}}</td>
+        <td title="Wpl.y" class="masterTooltip">{{item.Wpl_y}}</td>
+        <td title="iy" class="masterTooltip">{{item.iy_}}</td>
+        <td title="Avz" class="masterTooltip">{{item.Avz}}</td>
+        <td title="Iz" class="masterTooltip">{{item.Iz}}</td>
+        <td title="Wel.z" class="masterTooltip">{{item.Wel_z}}</td>
+        <td title="Wpl.z" class="masterTooltip">{{item.Wpl_z}}</td>
+        <td title="iz" class="masterTooltip">{{item.iz_}}</td>
+        <td title="Ss" class="masterTooltip">{{item.Ss}}</td>
+        <td title="It" class="masterTooltip">{{item.It}}</td>
+        <td title="Iw" class="masterTooltip">{{item.Iw}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<br>
+<div class="row column text-center">
+  <a href="#" class="button large">Volver a atrás</a></div>
+</section>
